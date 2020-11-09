@@ -1,42 +1,41 @@
-<%= form_with(model: page, local: true) do |form| %>
+<%= form_with model: page, local: true do |form| %> 
+
   <% if page.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(page.errors.count, "error") %> prohibited this page from being saved:</h2>
-
-      <ul>
-        <% page.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+      <h2 class="link sample_title">
+       Liczba błędów:  <%= page.errors.count %> 
+      </h2>
+      <ul class="alert alert-danger link">
+        <% page.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="container">
+    <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <%= form.label "Nazwa", class: "col-lg-4 offset-lg-4 form_text" %>
+      <%= form.text_field :name, class: "col-lg-12" %>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <div class="col-lg-8 offset-lg-2">
+      <%= form.label "Opis", class: "col-lg-4 offset-lg-4 form_text" %>
+      <%= form.text_area :description, class: "col-lg-12 text_area" %>
   </div>
-
-  <div class="field">
-    <%= form.label :github %>
-    <%= form.text_field :github %>
+  <div class="col-lg-8 offset-lg-2">
+      <%= form.label "Github", class: "col-lg-4 offset-lg-4 form_text" %>
+      <%= form.text_field :github, class: "col-lg-12" %>
   </div>
-
-  <div class="field">
-    <%= form.label :website %>
-    <%= form.text_field :website %>
+  <div class="col-lg-8 offset-lg-2">
+      <%= form.label "Link", class: "col-lg-4 offset-lg-4 form_text" %>
+      <%= form.text_field :website, class: "col-lg-12" %>
   </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+  <div class="col-lg-8 offset-lg-2">
+      <%= form.label "Zdjęcie", class: "col-lg-4 offset-lg-4 form_text" %>
+      <%= form.file_field :image %>
+      <%= form.submit "Zapisz", class: "col-lg-2 mt-50" %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
+  
 <% end %>

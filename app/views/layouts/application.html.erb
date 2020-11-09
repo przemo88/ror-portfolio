@@ -10,6 +10,29 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg bg-light">
+
+            <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse" data-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation"><span class="dark-blue-text">
+                    <i class="fa fa-bars fa-1x"></i></span></button>
+
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav navbar-center">
+                    <li class="nav-item">
+                        <span><%= link_to 'O MNIE', static_index_path, class: "nav-link span" %></span>
+                    </li>
+                    <li class="nav-item">
+                        <span><%= link_to 'PORTFOLIO', pages_url, class: "nav-link span" %></span>
+                    </li>
+                    <li class="nav-item">
+                            <span><%= link_to 'DODAJ', new_page_path, class: "nav-link span" %></span>
+                        </li>
+                    <li class="nav-item">
+                        <span><%= link_to 'KONTAKT', email_index_path, class: "nav-link span" %></span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     <%= yield %>
   </body>
 </html>

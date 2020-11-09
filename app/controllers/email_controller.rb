@@ -1,6 +1,6 @@
 class EmailController < ApplicationController
 
-    def contact
+    def index
         @data = Email.new(params[:email])
       end
     
