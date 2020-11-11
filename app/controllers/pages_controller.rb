@@ -3,74 +3,54 @@ class PagesController < ApplicationController
 
   http_basic_authenticate_with name: ENV['LOGIN'], password: ENV['PASSWORD'], except: [:index, :show]
 
-  # GET /pages
-  # GET /pages.json
   def index
     @pages = Page.all
     @count = Page.count
   end
 
-  # GET /pages/1
-  # GET /pages/1.json
   def show
   end
 
-  # GET /pages/new
   def new
     @page = Page.new
   end
 
-  # GET /pages/1/edit
   def edit
   end
 
-  # POST /pages
-  # POST /pages.json
   def create
     @page = Page.new(page_params)
 
-    respond_to do |format|
       if @page.save
-        format.html { redirect_to @page, notice: 'Page was successfully created.' }
-        format.json { render :show, status: :created, location: @page }
+        redirect_to @page
+        flash[:success] = "Dodano nową stronę."
       else
-        format.html { render :new }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+        render 'new'
       end
     end
-  end
 
-  # PATCH/PUT /pages/1
-  # PATCH/PUT /pages/1.json
   def update
-    respond_to do |format|
       if @page.update(page_params)
-        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
-        format.json { render :show, status: :ok, location: @page }
+        redirect_to @page
+        flash[:success] = "Dane zostały zaktualizowane."
       else
-        format.html { render :edit }
-        format.json { render json: @page.errors, status: :unprocessable_entity }
+        render 'update'
       end
     end
-  end
 
-  # DELETE /pages/1
-  # DELETE /pages/1.json
+
   def destroy
     @page.destroy
-    respond_to do |format|
-      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to pages_url
+      flash[:destroy] = "Strona została usunięta."
   end
 
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_page
       @page = Page.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def page_params
       params.require(:page).permit(:name, :description, :github, :website, :image)
     end

@@ -1,7 +1,7 @@
 <%= form_with model: page, local: true do |form| %> 
 
   <% if page.errors.any? %>
-    <div id="error_explanation">
+    <div>
       <h2 class="link sample_title">
        Liczba błędów:  <%= page.errors.count %> 
       </h2>

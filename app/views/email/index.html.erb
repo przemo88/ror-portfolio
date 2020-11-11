@@ -1,6 +1,21 @@
 <h1 class="col-lg-4 offset-lg-4 title">Formularz kontaktowy</h1>
 
 <%= form_for @data, url: 'email#index', remote: true do |f| %>
+
+
+  <% if @data.errors.any? %>
+    <div>
+      <h2 class="link sample_title">
+       Liczba błędów:  <%= @data.errors.count %> 
+      </h2>
+      <ul class="alert alert-danger link">
+        <% @data.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <div class="container">
   <div class="row">
 
