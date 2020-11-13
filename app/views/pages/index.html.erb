@@ -15,7 +15,7 @@
     
     <% @pages.each do |page| %>
     <div class="website margin_top margin_xl_top col-lg-5 col-12 offset-lg-1 image">
-    <div class="col-lg-6 col-12 col-sm-12 offset-lg-3 mt50 show_title"><%= page.name %></div>
+    <div class="col-lg-12 col-12 col-sm-12 mt50 show_title"><%= page.name %></div>
     <div class="link"> <%= link_to 'Opis', page %> </div>
       <div>  <%= link_to image_tag(page.image), pages_path if page.image.attached? %></div>
         </div>
