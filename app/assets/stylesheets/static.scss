@@ -8,8 +8,13 @@
 
 body{
     font-family: 'Lato', sans-serif;
-    overflow-x: hidden;
     background-color: #e9ecef;
+    overflow-y: hidden;
+
+    @media(max-width: 768px){
+        overflow-y: scroll;
+    }
+
 }
 
 .jumbotron{
@@ -21,13 +26,6 @@ body{
     margin-top: 0;
     border-radius: 0;
     text-align: center;
-}
-
-.title{
-    @media(max-width: 768px){
-        font-size: 30px;
-        color: black;
-    }
 }
 
 img{
@@ -87,6 +85,13 @@ img{
     }
 }
 
+i{
+    @media(max-width:768px){
+        font-size: 35px !important;
+        color: white;
+    }
+}
+
 .name{
 	padding-top: 15%;
 	font-weight: bold;
@@ -137,11 +142,14 @@ img{
     }
 }
 
+
+
 .bg-light{
     background-color: rgb(50, 33, 23) !important; 
     
     @media(min-width:768px){
         height: 50px !important;
+        color: red !important;
     }
 }
 
@@ -149,25 +157,22 @@ img{
     padding-top: 25px;
 }
 
-@media(max-width: 1140px){
     .navbar{
-        padding: 0 !important;
-    }
+        @media(max-width: 1140px){
+            padding: 0 !important;
 
-    ul{
-        width: 100% !important; 
-      
-        li{
-            width: 100% !important;
+        ul{
+            width: 100% !important; 
+          
+            li{
+                width: 100% !important;
+            }
         }
     }
 }
 
 .desc{
     font-size: 25px;
-    @media(max-width: 768px){
-        color: black;
-    }
 }
 
 a{

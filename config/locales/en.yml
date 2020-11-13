@@ -33,3 +33,11 @@ en:
   hello: "Hello world"
   errors:
     format: "%{message}"
+
+    mail_form:
+      errors:
+         models:
+            email:
+               attributes:
+                  name: 
+                     blank: "My custom message goes here"
