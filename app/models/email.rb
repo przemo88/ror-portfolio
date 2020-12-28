@@ -7,7 +7,7 @@ class Email < MailForm::Base
     
     def headers
       {
-        :subject => "Wiadomość wysłana przez formularz kontakowowy (RoR).",
+        :subject => "Wiadomość wysłana przez formularz kontaktowy (RoR).",
         :to => "kontakt@przemyslawprzewoznik.pl",
         :from => %("#{name}" <#{email}>)
       }

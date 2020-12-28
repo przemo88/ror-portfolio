@@ -1,7 +1,17 @@
 <section>
     <div class="jumbotron jumbotron-fluid" id="about">
-    
-       
+        <div>
+            <% if flash[:email_success] %>
+            <div class="alert alert-success link"><%= flash[:email_success] %></div>
+            <% end %>
+        </div>
+        <div>
+            <% if flash[:email_error] %>
+            <div class="alert alert-success link"><%= flash[:email_error] %></div>
+            <% end %>
+        </div>
+
+
         <div class="container jumbotron-text">
             <div class="row">
                 <div class="offset-lg-2 col-lg-8">
@@ -12,13 +22,13 @@
             <div class="row">
                 <div class="offset-lg-4 col-lg-4 col-12">
                     <a href="https://github.com/przemo88?tab=repositories">
-                    <i class="fa fa-github git link_icon"></i></a>
-                    
-                    <a href="https://www.linkedin.com/in/przemysław-przewoźnik-a57019122/">  
-                    <i class="fa fa-linkedin-square link link_icon"></i></a>
+                        <i class="fa fa-github git link_icon"></i></a>
 
-                    <a href="mailto:kontakt@przemyslaw.przewoznik.pl"> 
-                    <i class="fa fa-envelope  link_icon"></i></a>
+                    <a href="https://www.linkedin.com/in/przemysław-przewoźnik-a57019122/">
+                        <i class="fa fa-linkedin-square link link_icon"></i></a>
+
+                    <a href="mailto:kontakt@przemyslaw.przewoznik.pl">
+                        <i class="fa fa-envelope  link_icon"></i></a>
                 </div>
             </div>
         </div>

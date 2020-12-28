@@ -9,7 +9,12 @@ class EmailController < ApplicationController
         @data.request = request
           if @data.deliver
             @data = Email.new
-        end
+            flash[:email_success] = "Dziękujemy twoja wiadomość została wysłana."
+            redirect_to root_path
+            
+          else
+            flash[:email_error] = "Niestety nie udało się wysłać twojej wiadomości."
       end
+    end
 
 end

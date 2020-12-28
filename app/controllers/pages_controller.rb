@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_page, only: [:show, :edit, :update, :destroy]
+  before_action  only: [:show, :edit, :update, :destroy]
 
   http_basic_authenticate_with name: ENV['LOGIN'], password: ENV['PASSWORD'], except: [:index, :show]
 
@@ -9,6 +9,11 @@ class PagesController < ApplicationController
   end
 
   def show
+    begin
+      set_page
+    rescue  ActiveRecord::RecordNotFound 
+      redirect_to root_path
+    end
   end
 
   def new
@@ -16,6 +21,7 @@ class PagesController < ApplicationController
   end
 
   def edit
+    set_page
   end
 
   def create
